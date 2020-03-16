@@ -1,8 +1,8 @@
 package qaautomation.collections.optional;
 
-// Ввести строки из файла, записать в список ArrayList. Выполнить сортировку строк, используя метод sort() из класса Collections.
 import java.io.*;
 import java.util.*;
+// Ввести строки из файла, записать в список ArrayList. Выполнить сортировку строк, используя метод sort() из класса Collections.
 
 public class SixthTask {
     public static void main(String[] args) throws IOException {

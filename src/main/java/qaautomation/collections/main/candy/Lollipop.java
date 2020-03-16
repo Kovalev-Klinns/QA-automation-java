@@ -1,7 +1,5 @@
 package qaautomation.collections.main.candy;
 
-import qaautomation.collections.main.candy.Candy;
-
 public class Lollipop extends Candy {
     public Lollipop(Double weight, int sugarContent) {
         super(weight, sugarContent);

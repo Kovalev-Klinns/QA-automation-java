@@ -7,7 +7,8 @@ public class FindNumber {
         int numberWithShortLength = values[0];
         int numberWithLongLength = 0;
         int shortLength = Integer.toString(values[0]).length();
-        int longLenght = 0;
+        int longLength = 0;
+
         for (int i = 0; i < values.length; i++) {
             while (true) {
                 int length = Integer.toString(values[i]).length();
@@ -15,13 +16,13 @@ public class FindNumber {
                 shortLength = length;
                 numberWithShortLength = values[i];
             }
-            while (Integer.toString(values[i]).length() > longLenght) {
-                longLenght = Integer.toString(values[i]).length();
+            while (Integer.toString(values[i]).length() > longLength) {
+                longLength = Integer.toString(values[i]).length();
                 numberWithLongLength = values[i];
             }
         }
         System.out.println("Число с наименьшей длиной - " + numberWithShortLength + ", его длина - " + shortLength);
-        System.out.println("Число с наибольшей длиной - " + numberWithLongLength + ", его длина - " + longLenght);
+        System.out.println("Число с наибольшей длиной - " + numberWithLongLength + ", его длина - " + longLength);
     }
 }
 

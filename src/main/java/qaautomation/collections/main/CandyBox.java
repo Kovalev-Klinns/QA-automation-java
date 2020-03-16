@@ -1,7 +1,6 @@
 package qaautomation.collections.main;
 
 import qaautomation.collections.main.candy.Candy;
-
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;

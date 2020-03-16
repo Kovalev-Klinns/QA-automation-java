@@ -1,4 +1,5 @@
 package qaautomation.fundamentals.optional;
+
 import java.util.Arrays;
 //Вывести на консоль те числа, длина которых меньше средней длины по всем числам, а также длину.
 

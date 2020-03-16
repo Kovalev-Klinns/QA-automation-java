@@ -7,7 +7,6 @@ public class HelloUserName {
         System.out.println("Введите свое имя");
         Scanner input = new Scanner(System.in);
         String userName = input.next();
-
         System.out.println("Hello " + userName + "!");
     }
 }

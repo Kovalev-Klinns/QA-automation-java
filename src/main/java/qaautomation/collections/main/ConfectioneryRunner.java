@@ -1,8 +1,8 @@
 package qaautomation.collections.main;
+
 import qaautomation.collections.main.candy.Candy;
 import qaautomation.collections.main.candy.Chocolate;
 import qaautomation.collections.main.candy.Lollipop;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Pattern;

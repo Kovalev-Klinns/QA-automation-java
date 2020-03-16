@@ -31,5 +31,3 @@ public class Patient {
         return personalCard.toString() + " || " + medCard.toString();
     }
 }
-
-

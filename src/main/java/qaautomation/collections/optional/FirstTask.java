@@ -1,11 +1,10 @@
 package qaautomation.collections.optional;
 
-// Ввести строки из файла, записать в список. Вывести строки в файл в обратном порядке.
-
 import java.io.*;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+// Ввести строки из файла, записать в список. Вывести строки в файл в обратном порядке.
 
 public class FirstTask {
     public static void main(String[] args) throws IOException {

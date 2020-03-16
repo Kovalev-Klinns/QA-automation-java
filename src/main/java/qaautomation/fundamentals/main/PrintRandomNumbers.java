@@ -9,6 +9,7 @@ public class PrintRandomNumbers {
             numbers[i] = Math.round(Math.random() * 1000);
             System.out.println(numbers[i]);
         }
+
         System.out.println("Без перехода:");
         for (int i = 0; i < numbers.length; i++) {
             System.out.print(numbers[i] + " ");

@@ -1,4 +1,5 @@
 package qaautomation.collections.optional;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
@@ -7,7 +8,7 @@ import java.util.List;
 
 public class FourthTask {
     private static final String poem =
-                    "When forty winters shall beseige thy brow,\n"+
+            "When forty winters shall beseige thy brow,\n"+
                     "And dig deep trenches in thy beauty's field,\n"+
                     "Thy youth's proud livery, so gazed on now,\n"+
                     "Will be a tatter'd weed, of small worth held:\n"+
