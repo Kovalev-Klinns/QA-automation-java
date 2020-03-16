@@ -6,7 +6,7 @@ import java.util.*;
 
 public class SixthTask {
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("sixth_collections_task.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("src/main/resources/sixth_collections_task.txt"));
         ArrayList<String> linesFromFile = new ArrayList<>();
         String line;
         while ((line = br.readLine()) != null) {
