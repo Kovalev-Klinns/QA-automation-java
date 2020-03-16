@@ -3,19 +3,25 @@ package qaautomation.fundamentals.optional;
 
 public class FindNumber {
     public static void main(String[] args) {
-        int[] values = {22, 36, 28467, 255, 7, 3999};
-        int lowerNumber = values[0];
-        int largeNumber = 0;
+        int[] values = {22, 36, 28467, 255, 71, 3999, 9};
+        int numberWithShortLength = values[0];
+        int numberWithLongLength = 0;
+        int shortLength = Integer.toString(values[0]).length();
+        int longLenght = 0;
         for (int i = 0; i < values.length; i++) {
-            while (values[i] < lowerNumber) {
-                lowerNumber = values[i];
+            while (true) {
+                int length = Integer.toString(values[i]).length();
+                if (length >= shortLength) break;
+                shortLength = length;
+                numberWithShortLength = values[i];
             }
-            while (values[i] > largeNumber) {
-                largeNumber = values[i];
+            while (Integer.toString(values[i]).length() > longLenght) {
+                longLenght = Integer.toString(values[i]).length();
+                numberWithLongLength = values[i];
             }
         }
-        System.out.println("Наименьшее число - " + lowerNumber + ", его длина - " + Integer.toString(lowerNumber).length());
-        System.out.println("Наибольшее число - " + largeNumber + ", его длина - " + Integer.toString(largeNumber).length());
+        System.out.println("Число с наименьшей длиной - " + numberWithShortLength + ", его длина - " + shortLength);
+        System.out.println("Число с наибольшей длиной - " + numberWithLongLength + ", его длина - " + longLenght);
     }
 }
 
