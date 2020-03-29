@@ -1,5 +1,6 @@
 package qaautomation.errorandexceptions.students;
 
+import qaautomation.errorandexceptions.exceptions.StudentHasNoSubjectException;
 import qaautomation.errorandexceptions.subjects.Subject;
 
 public class Student {
@@ -8,11 +9,7 @@ public class Student {
 
     public Student(String name, Subject[] subjects) throws StudentHasNoSubjectException {
         this.name = name;
-        this.subjects = subjects;
-
-        if(subjects.length == 0) {
-            throw new StudentHasNoSubjectException();
-        }
+        setSubjects(subjects);
     }
 
     public double calculateGradePointForStudent() {
@@ -36,7 +33,9 @@ public class Student {
         return subjects;
     }
 
-    public void setSubjects(Subject[] subjects) {
+    public void setSubjects(Subject[] subjects) throws StudentHasNoSubjectException {
+        if(subjects.length == 0)
+            throw new StudentHasNoSubjectException();
         this.subjects = subjects;
     }
 

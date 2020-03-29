@@ -1,16 +1,14 @@
 package qaautomation.errorandexceptions.students;
 
+import qaautomation.errorandexceptions.exceptions.NoStudentInGroupException;
+
 public class GroupOfStudents {
     private int groupId;
     private Student[] studentsOfGroup;
 
     public GroupOfStudents(int groupId, Student[] studentsOfGroup) throws NoStudentInGroupException {
         this.groupId = groupId;
-        this.studentsOfGroup = studentsOfGroup;
-
-        if (studentsOfGroup.length == 0) {
-            throw new NoStudentInGroupException();
-        }
+        setStudentsOfGroup(studentsOfGroup);
     }
 
     public double calculateGradePointForGroup(String subjectName) {
@@ -38,7 +36,9 @@ public class GroupOfStudents {
         return studentsOfGroup;
     }
 
-    public void setStudentsOfGroup(Student[] studentsOfGroup) {
+    public void setStudentsOfGroup(Student[] studentsOfGroup) throws NoStudentInGroupException {
+        if (studentsOfGroup.length == 0)
+            throw new NoStudentInGroupException();
         this.studentsOfGroup = studentsOfGroup;
     }
 

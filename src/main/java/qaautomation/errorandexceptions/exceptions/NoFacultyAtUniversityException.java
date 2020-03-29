@@ -1,4 +1,4 @@
-package qaautomation.errorandexceptions;
+package qaautomation.errorandexceptions.exceptions;
 
 public class NoFacultyAtUniversityException extends Exception {
     public NoFacultyAtUniversityException() {

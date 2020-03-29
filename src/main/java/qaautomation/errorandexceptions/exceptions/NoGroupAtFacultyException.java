@@ -1,4 +1,4 @@
-package qaautomation.errorandexceptions.faculty;
+package qaautomation.errorandexceptions.exceptions;
 
 public class NoGroupAtFacultyException extends Exception {
     public NoGroupAtFacultyException() {

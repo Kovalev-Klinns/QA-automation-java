@@ -1,4 +1,4 @@
-package qaautomation.errorandexceptions.students;
+package qaautomation.errorandexceptions.exceptions;
 
 public class StudentHasNoSubjectException extends Exception {
     public StudentHasNoSubjectException() {

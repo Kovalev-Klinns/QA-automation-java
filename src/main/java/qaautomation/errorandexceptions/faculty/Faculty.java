@@ -1,5 +1,6 @@
 package qaautomation.errorandexceptions.faculty;
 
+import qaautomation.errorandexceptions.exceptions.NoGroupAtFacultyException;
 import qaautomation.errorandexceptions.students.GroupOfStudents;
 
 abstract public class Faculty {
@@ -7,10 +8,7 @@ abstract public class Faculty {
 
      public Faculty(GroupOfStudents[] groupOfStudents) throws NoGroupAtFacultyException {
         this.groupOfStudents = groupOfStudents;
-
-        if (groupOfStudents.length == 0) {
-            throw new NoGroupAtFacultyException();
-        }
+        setGroupOfStudents(groupOfStudents);
     }
 
     public double calculateGradePointForFaculty (String subjectName) {
@@ -33,7 +31,9 @@ abstract public class Faculty {
         return groupOfStudents;
     }
 
-    public void setGroupOfStudents(GroupOfStudents[] groupOfStudents) {
+    public void setGroupOfStudents(GroupOfStudents[] groupOfStudents) throws NoGroupAtFacultyException {
         this.groupOfStudents = groupOfStudents;
+        if (groupOfStudents.length == 0)
+            throw new NoGroupAtFacultyException();
     }
 }

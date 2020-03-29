@@ -1,4 +1,4 @@
-package qaautomation.errorandexceptions.subjects;
+package qaautomation.errorandexceptions.exceptions;
 
 public class AssessmentException extends Exception{
     public AssessmentException() {

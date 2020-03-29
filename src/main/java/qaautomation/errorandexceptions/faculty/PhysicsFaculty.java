@@ -1,5 +1,6 @@
 package qaautomation.errorandexceptions.faculty;
 
+import qaautomation.errorandexceptions.exceptions.NoGroupAtFacultyException;
 import qaautomation.errorandexceptions.students.GroupOfStudents;
 
 public class PhysicsFaculty extends Faculty {

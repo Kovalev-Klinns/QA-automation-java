@@ -1,13 +1,14 @@
 package qaautomation.errorandexceptions.subjects;
 
-public class Subject {
+import qaautomation.errorandexceptions.exceptions.AssessmentException;
+
+public class Subject  {
     private String subjectName;
     private int assessment;
 
     public Subject(String subjectName, int assessment) throws AssessmentException {
-        this.subjectName = subjectName;
-        this.assessment = assessment;
-        if (assessment <= 0 || assessment > 10) throw new AssessmentException();
+        setSubjectName(subjectName);
+        setAssessment(assessment);
     }
 
     public String getSubjectName() {
@@ -22,7 +23,9 @@ public class Subject {
         return assessment;
     }
 
-    public void setAssessment(int assessment) {
+    public void setAssessment(int assessment) throws AssessmentException {
+        if (assessment < 1 || assessment > 10)
+            throw new AssessmentException();
         this.assessment = assessment;
     }
 

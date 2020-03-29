@@ -1,16 +1,13 @@
 package qaautomation.errorandexceptions;
 
+import qaautomation.errorandexceptions.exceptions.NoFacultyAtUniversityException;
 import qaautomation.errorandexceptions.faculty.Faculty;
 
 public class University {
     private Faculty[] faculty;
 
     public University(Faculty[] faculty) throws NoFacultyAtUniversityException {
-        this.faculty = faculty;
-
-        if (faculty.length == 0) {
-            throw new NoFacultyAtUniversityException();
-        }
+        setFaculty(faculty);
     }
 
     public double calculateGradePointForUniversity(String subjectName) {
@@ -35,7 +32,9 @@ public class University {
         return faculty;
     }
 
-    public void setFaculty(Faculty[] faculty) {
+    public void setFaculty(Faculty[] faculty) throws NoFacultyAtUniversityException {
+        if (faculty.length == 0)
+            throw new NoFacultyAtUniversityException();
         this.faculty = faculty;
     }
 }
