@@ -10,56 +10,73 @@ package qaautomation.io;
 //Среднюю длинну названия файла
 
 import java.io.*;
-import java.util.Objects;
 
 public class Runner {
-    public static void main(String[] args) throws IOException {
-        File input = new File(args[0]);
-        File file = new File("src/main/resources/files_and_folders.txt");
-        int directoryCounter = 0;
-        int filesCounter = 0;
-        int sumOfLengths = 0;
-        int filesInFolders = 0;
+    static int directoryCounter = 0;
+    static int fileCounter = 0;
+    static int sumOfFilesLengths = 0;
+    static PrintWriter pw;
 
+    public static void main(String[] args)  {
+        File filesAndFoldersTxt = new File("src/main/resources/files_and_folders.txt");
 
-        if (input.isDirectory()) {
-            PrintWriter pw = new PrintWriter(new FileWriter(file));
-            byte numberOfFile = 1;
-            for (File f : Objects.requireNonNull(input.listFiles())) {
-                if (f.isDirectory()) {
-                    pw.println(numberOfFile + ") " + f + " (directory)");
-                    directoryCounter++;
-                    for(File g : Objects.requireNonNull(f.listFiles())) {
-                        if(g.isFile()) {
-                            filesInFolders++;
-                        }
-                    }
-                } else if (f.isFile()) {
-                    pw.println(numberOfFile + ") " + f + " (file)");
-                    sumOfLengths = sumOfLengths + f.getName().length();
-                    filesCounter++;
+        String inputString = args[0];
+        File input = new File(inputString);
+        if (!input.exists()) {
+            System.out.println("Not found " + inputString);
+        }
+        else if (input.getAbsolutePath().equals(filesAndFoldersTxt.getAbsolutePath())) {
+            try {
+                BufferedReader br = new BufferedReader(new FileReader(filesAndFoldersTxt));
+                String line;
+                while ((line = br.readLine()) != null) {
+                    System.out.println(line);
                 }
-                numberOfFile++;
+                br.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            pw.println();
-            pw.println("Number of folders: " + directoryCounter);
-            pw.println("Number of files: " + filesCounter);
-            pw.println("The average number of files in a folder: " + filesInFolders/ directoryCounter);
-            pw.println("The average length of file name: " + sumOfLengths / filesCounter);
-            pw.close();
-            System.out.println();
-            System.out.println("Structure is written to file.");
+        }
+        else if (input.isDirectory()) {
+            try {
+                pw = new PrintWriter("src/main/resources/files_and_folders.txt");
+                list(input);
+                pw.println();
 
-        } else if (input.getAbsolutePath().equals(file.getAbsolutePath())) {
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            String line;
-            while ((line = br.readLine()) != null) {
-                System.out.println(line);
+                pw.println("Number of folders: " + directoryCounter);
+                pw.println("Number of files: " + fileCounter);
+                pw.println("Average number of files in folder: " + fileCounter/directoryCounter);
+                pw.println("Average length of file: " + sumOfFilesLengths/fileCounter);
+                System.out.println("Structure is written to file");
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            br.close();
+            finally {
+                pw.close();
+            }
         }
         else {
-            System.out.println("Please, enter existing directory");
+            System.out.println("This is not a directory!");
+        }
+    }
+
+    static void list(File dir) throws IOException {
+        pw.println(dir.toString() + " (directory)");
+        int number = 1;
+        for(File fileFromList : dir.listFiles()) {
+            if (fileFromList.isDirectory()) {
+                list(fileFromList);
+                directoryCounter++;
+            }
+
+            else if (fileFromList.isFile()) {
+                pw.println("    " + number + ")" + fileFromList.getName() + " (file)");
+                fileCounter++;
+                sumOfFilesLengths = sumOfFilesLengths + fileFromList.toString().length();
+                number++;
+            }
         }
     }
 }
