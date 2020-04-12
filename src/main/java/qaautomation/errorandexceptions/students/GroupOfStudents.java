@@ -1,6 +1,7 @@
 package qaautomation.errorandexceptions.students;
 
 import qaautomation.errorandexceptions.exceptions.NoStudentInGroupException;
+import qaautomation.errorandexceptions.subjects.Subject;
 
 public class GroupOfStudents {
     private int groupId;
@@ -14,10 +15,10 @@ public class GroupOfStudents {
     public double calculateGradePointForGroup(String subjectName) {
         double sum = 0;
         byte score = 0;
-        for(int i = 0; i < studentsOfGroup.length; i++) {
-            for (int j = 0; j < studentsOfGroup[i].getSubjects().length; j++) {
-                if (studentsOfGroup[i].getSubjects()[j].getSubjectName().equals(subjectName)) {
-                    sum += studentsOfGroup[i].getSubjects()[j].getAssessment();
+        for(Student studentOfGroup : studentsOfGroup) {
+            for (Subject subject : studentOfGroup.getSubjects()) {
+                if (subject.getSubjectName().equals(subjectName)) {
+                    sum = sum + subject.getAssessment();
                     score++;
                 }
             }

@@ -14,8 +14,8 @@ public class Student {
 
     public double calculateGradePointForStudent() {
         double sum = 0;
-        for(int i = 0; i < subjects.length; i++) {
-            sum = sum + subjects[i].getAssessment();
+        for(Subject subject : subjects) {
+            sum = sum + subject.getAssessment();
         }
         sum = sum/subjects.length;
         return sum;

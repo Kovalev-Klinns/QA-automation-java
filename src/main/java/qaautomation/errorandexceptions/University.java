@@ -2,6 +2,9 @@ package qaautomation.errorandexceptions;
 
 import qaautomation.errorandexceptions.exceptions.NoFacultyAtUniversityException;
 import qaautomation.errorandexceptions.faculty.Faculty;
+import qaautomation.errorandexceptions.students.GroupOfStudents;
+import qaautomation.errorandexceptions.students.Student;
+import qaautomation.errorandexceptions.subjects.Subject;
 
 public class University {
     private Faculty[] faculty;
@@ -13,12 +16,12 @@ public class University {
     public double calculateGradePointForUniversity(String subjectName) {
        double sum = 0;
        int score = 0;
-       for (int i = 0; i < faculty.length; i++) {
-           for (int j = 0; j < faculty[i].getGroupOfStudents().length; j++) {
-               for (int k = 0; k < faculty[i].getGroupOfStudents()[j].getStudentsOfGroup().length; k++) {
-                   for (int l = 0; l < faculty[i].getGroupOfStudents()[j].getStudentsOfGroup()[k].getSubjects().length; l++) {
-                       if (faculty[i].getGroupOfStudents()[j].getStudentsOfGroup()[k].getSubjects()[l].getSubjectName().equals(subjectName)) {
-                           sum += faculty[i].getGroupOfStudents()[j].getStudentsOfGroup()[k].getSubjects()[l].getAssessment();
+       for (Faculty faculty : faculty) {
+           for (GroupOfStudents groupOfStudents : faculty.getGroupOfStudents()) {
+               for (Student studentOfGroup : groupOfStudents.getStudentsOfGroup()) {
+                   for (Subject subject : studentOfGroup.getSubjects()) {
+                       if (subject.getSubjectName().equals(subjectName)) {
+                           sum += subject.getAssessment();
                            score++;
                        }
                    }
