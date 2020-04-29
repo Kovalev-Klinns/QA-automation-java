@@ -12,13 +12,14 @@ package qaautomation.io;
 import java.io.*;
 
 public class Runner {
+    static String filesAndFoldersPath = "src/main/resources/files_and_folders.txt";
     static int directoryCounter = 0;
     static int fileCounter = 0;
     static int sumOfFilesLengths = 0;
     static PrintWriter pw;
 
     public static void main(String[] args)  {
-        File filesAndFoldersTxt = new File("src/main/resources/files_and_folders.txt");
+        File filesAndFoldersTxt = new File(filesAndFoldersPath);
 
         String inputString = args[0];
         File input = new File(inputString);
@@ -41,7 +42,7 @@ public class Runner {
         }
         else if (input.isDirectory()) {
             try {
-                pw = new PrintWriter("src/main/resources/files_and_folders.txt");
+                pw = new PrintWriter(filesAndFoldersPath);
                 list(input);
                 pw.println();
 
@@ -72,7 +73,7 @@ public class Runner {
             }
 
             else if (fileFromList.isFile()) {
-                pw.println("    " + number + ")" + fileFromList.getName() + " (file)");
+                pw.println("    " + number + ")" + fileFromList.toString() + " (file)");
                 fileCounter++;
                 sumOfFilesLengths = sumOfFilesLengths + fileFromList.toString().length();
                 number++;
