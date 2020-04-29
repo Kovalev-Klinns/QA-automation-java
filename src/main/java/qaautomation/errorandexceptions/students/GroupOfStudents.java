@@ -24,7 +24,7 @@ public class GroupOfStudents {
             }
         }
         return sum/score;
-        }
+    }
     public int getGroupId() {
         return groupId;
     }

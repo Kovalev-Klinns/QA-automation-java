@@ -2,9 +2,6 @@ package qaautomation.errorandexceptions;
 
 import qaautomation.errorandexceptions.exceptions.NoFacultyAtUniversityException;
 import qaautomation.errorandexceptions.faculty.Faculty;
-import qaautomation.errorandexceptions.students.GroupOfStudents;
-import qaautomation.errorandexceptions.students.Student;
-import qaautomation.errorandexceptions.subjects.Subject;
 
 public class University {
     private Faculty[] faculty;
@@ -17,16 +14,8 @@ public class University {
        double sum = 0;
        int score = 0;
        for (Faculty faculty : faculty) {
-           for (GroupOfStudents groupOfStudents : faculty.getGroupOfStudents()) {
-               for (Student studentOfGroup : groupOfStudents.getStudentsOfGroup()) {
-                   for (Subject subject : studentOfGroup.getSubjects()) {
-                       if (subject.getSubjectName().equals(subjectName)) {
-                           sum += subject.getAssessment();
-                           score++;
-                       }
-                   }
-               }
-           }
+           sum = sum + faculty.calculateGradePointForFaculty(subjectName);
+           score++;
        }
        return sum = sum/score;
     }
